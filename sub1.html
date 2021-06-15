@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<!--
+	Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>동궁과 월지</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+        body {
+            padding-top: 2.1em;
+        }
+
+        #contact {
+            padding-bottom: 4em;
+        }
+    </style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            mobile_menu();
+        });
+
+        function mobile_menu() {
+            var $menu = null;
+            var $left_gnb = null; 
+            var $depth1_wrap = null;
+            var $depth1 = null;
+            var $depth1_btn = null;
+
+            function start() {
+                init();
+                init_event();
+            }
+            function init() {
+                $menu = $('.m_menu');
+                $left_gnb = $('.left_gnbWrap'); 
+                $depth1_wrap = $('.left_gnb>li');
+                $depth1 = $depth1_wrap.children('ul');
+                $depth1_btn = $depth1_wrap.children('a');
+            }
+            function init_event() {
+
+  
+                $menu.click(function(event) {
+                    event.preventDefault();
+                    $left_gnb.addClass('on');
+                });
+
+                $('.close').click(function(event) {
+                    event.preventDefault();
+
+                    $left_gnb.removeClass('on');
+
+       
+                    setTimeout(function() {
+                        $depth1_btn.removeClass('on');
+                        $depth1.slideUp();
+                    }, 300)
+                });
+
+                $depth1_btn.click(function(event) {
+                    event.preventDefault();
+                    var $this = $(this);
+                    var $this_ul = $this.siblings('ul');
+
+                    var check = $this.hasClass('on');
+                    if (check) {
+                        $this.removeClass('on');
+                        $this_ul.stop(true, true).slideUp();
+                    } else {
+                        $depth1_btn.removeClass('on');
+                        $depth1.stop().slideUp();
+                        $this.addClass('on');
+                        $this_ul.stop(true, true).slideDown();
+                    }
+                });
+
+    
+                $(window).resize(function() {
+                    $left_gnb.removeClass('on');
+                });
+            }
+
+            start(); 
+        }
+    </script>
+
+
+    <script src="js/jquery-v1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+
+</head>
+
+<body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+        <h1 class="logo"><a href="index.html"><img src="images/logo.png"></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#intro">동궁과월지</a></li>
+                <li><a href="index.html#one">소개말</a></li>
+                <li><a href="index.html#two">관광안내</a></li>
+                <li><a href="index.html#work">갤러리</a></li>
+                <li class="menu_contact"><a href="index.html#contact">관람예약</a>
+                    <ul class="menu_contact_sub">
+                        <li><a href="sub1.html">입장권발권</a></li>
+                        <li><a href="sub2.html">내발권함</a></li>
+                        <li><a href="sub3.html">문의하기</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </nav>
+
+        <div class="m_menu"><img src="images/m_more.png" alt="메뉴버튼">
+        </div>
+        <div class="left_gnbWrap">
+            <a href="#" class="close"></a>
+            <ul class="left_gnb">
+                <a href="index.html#intro"><li>
+                    동궁과월지
+                </li></a>
+                <a href="index.html#one"><li>
+                    소개말
+                </li></a>
+                <a href="index.html#two"><li>
+                    관광안내
+                </li></a>
+                <a href="index.html#work"><li>
+                    갤러리
+                </li></a>
+                <li>
+                    <a href="#contact">관람예약</a>
+                    <ul>
+                        <li><a href="sub1.html">입장권발권</a></li>
+                        <li><a href="sub2.html">내발권함</a></li>
+                        <li><a href="sub3.html">문의하기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+
+
+
+
+    <!-- Intro -->
+    <section id="intro_sub1">
+        <div class="content_sub1">
+            <header> </header>
+            <div id="intro_title_sub1"></div>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="main style3 secondary">
+        <div class="content">
+            <header id="title_sub2"></header>
+            <div class="box_sub1">
+                <form method="post" action="#">
+                    <div class="fields">
+
+                        <table class="reservation reser_sub1">
+                            <tr>
+                                <th class="tab_left">입장료</th>
+                                <th>
+                                    <div class="round">어른</div>
+                                </th>
+                                <th>
+                                    <div class="round">청소년</div>
+                                </th>
+                                <th>
+                                    <div class="round">어린이</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="tab_left">개인</th>
+                                <td>3,000</td>
+                                <td>2,000</td>
+                                <td>1,000</td>
+                            </tr>
+                            <tr>
+                                <th class="tab_left">단체</th>
+                                <td>2,400</td>
+                                <td>1,600</td>
+                                <td>800</td>
+                            </tr>
+
+                        </table>
+
+                        <div class="sub1_text">
+                            <p> <img src="images/pin.png">발권된 입장표는 당일만 사용 가능합니다.
+                                <br> <img src="images/pin2.png">발권된 입장표는 21시 30분 이후에는 사용할 수 없습니다. (자동발권 취소되며 환불처리됩니다.)
+                                <br> <img src="images/pin.png">구매인원 30명 이상은 단체금액으로 적용됩니다.
+                                <br> <img src="images/pin2.png">경주시민 및 할인대상자는 현장발권창구를 이용하세요.
+                            </p>
+                        </div>
+                        <div class="field third"> <span>어&nbsp;&nbsp;&nbsp;른</span>
+                            <input type="number" min="0" max="100" value="0" />
+                        </div>
+                        <div class="field third"> <span>청소년</span>
+                            <input type="number" min="0" max="100" value="0" />
+                        </div>
+                        <div class="field third"> <span>어린이</span>
+                            <input type="number" min="0" max="100" value="0" />
+                        </div>
+                        <div class="field">
+
+                        </div>
+                    </div>
+                    <ul class="actions_sub1 special_sub1">
+                        <li>
+                            <input type="submit" value="결제하기" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="footer">
+        <!-- Icons -->
+        <ul class="icons">
+            <li><span class="label icon brands fa-twitter"></span></li>
+            <li><span class="label icon brands fa-facebook-f"></span></li>
+            <li><span class="label icon brands fa-instagram"></span></li>
+            <li><span class="label icon brands fa-linkedin-in"></span></li>
+            <li><span class="label icon brands fa-dribbble"></span></li>
+            <li><span class="label icon brands fa-pinterest"></span></li>
+        </ul>
+        <!-- Menu -->
+        <ul class="menu">
+            <li>Copyright 2021 Gyeongju Tourguide. All rights reserved.</li>
+        </ul>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+        $("nav ul li").hover(function() {
+            $(this).find("ul").stop().fadeToggle(500);
+        });
+    </script>
+</body></html>

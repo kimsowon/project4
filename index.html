@@ -1,0 +1,516 @@
+<!DOCTYPE HTML>
+<!--
+	Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>동궁과 월지</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+
+    </style>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            mobile_menu();
+        });
+
+        function mobile_menu() {
+            /* 변수 선언 */
+            var $menu = null;
+            var $left_gnb = null; // 영역 전체
+            var $depth1_wrap = null;
+            var $depth1 = null;
+            var $depth1_btn = null;
+
+            /* 시작 함수 */
+            function start() {
+                init();
+                init_event();
+            }
+            /* 변수 초기화 함수 */
+            function init() {
+                $menu = $('.m_menu');
+                $left_gnb = $('.left_gnbWrap'); // 영역 전체
+                $depth1_wrap = $('.left_gnb>li');
+                $depth1 = $depth1_wrap.children('ul');
+                $depth1_btn = $depth1_wrap.children('a');
+            }
+            /* 이벤트 함수 */
+            function init_event() {
+
+                /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+                $menu.click(function(event) {
+                    event.preventDefault();
+                    $left_gnb.addClass('on');
+                });
+
+                /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+                $('.close').click(function(event) {
+                    event.preventDefault();
+
+                    $left_gnb.removeClass('on');
+
+                    // x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+                    setTimeout(function() {
+                        $depth1_btn.removeClass('on');
+                        $depth1.slideUp();
+                    }, 300)
+                });
+
+                /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+                $depth1_btn.click(function(event) {
+                    event.preventDefault();
+                    var $this = $(this);
+                    var $this_ul = $this.siblings('ul');
+
+                    var check = $this.hasClass('on');
+                    if (check) {
+                        $this.removeClass('on');
+                        $this_ul.stop(true, true).slideUp();
+                    } else {
+                        $depth1_btn.removeClass('on');
+                        $depth1.stop().slideUp();
+                        $this.addClass('on');
+                        $this_ul.stop(true, true).slideDown();
+                    }
+                });
+
+                /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+                $(window).resize(function() {
+                    $left_gnb.removeClass('on');
+                });
+            }
+
+            start(); // 시작 호출
+        }
+    </script>
+
+
+    <script src="js/jquery-v1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 class="logo"><a href="index.html"><img src="images/logo.png"></a></h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">동궁과월지</a></li>
+                <li><a href="#one">소개말</a></li>
+                <li><a href="#two">관광안내</a></li>
+                <li><a href="#work">갤러리</a></li>
+                <li class="menu_contact"><a href="#contact">관람예약</a>
+                    <ul class="menu_contact_sub">
+                        <li><a href="sub1.html">입장권발권</a></li>
+                        <li><a href="sub2.html">내발권함</a></li>
+                        <li><a href="sub3.html">문의하기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+        <div class="m_menu"><img src="images/m_more.png" alt="메뉴버튼">
+        </div>
+        <div class="left_gnbWrap">
+            <a href="#" class="close"></a>
+            <ul class="left_gnb">
+                <li>
+                    <a href="#intro">동궁과월지</a>
+                </li>
+                <li>
+                    <a href="#one">소개말</a>
+
+                </li>
+                <li>
+                    <a href="#two">관광안내</a>
+
+                </li>
+                <li>
+                    <a href="#work">갤러리</a>
+
+                </li>
+                <li>
+                    <a href="#contact">관람예약</a>
+                    <ul>
+                        <li><a href="sub1.html">입장권발권</a></li>
+                        <li><a href="sub2.html">내발권함</a></li>
+                        <li><a href="sub3.html">문의하기</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+    <!-- Intro -->
+    <section id="intro" class="main style1 dark fullscreen">
+        <div class="content">
+            <header>
+            </header>
+            <div id="intro_title"></div>
+            <div class="play_ico">
+                <div id="modal_btn"><a href="https://youtu.be/hMBh1e3s8y4" target="_blank"><img src="images/kor.png"></a></div>
+                <div id="modal_btn2"><a href="https://youtu.be/t0Gf2Yj44dk" target="_blank"><img src="images/eng.png"></a></div>
+                <div id="modal_btn3"><a href="https://youtu.be/sQNi-3Drh-c" target="_blank"><img src="images/chi.png"></a></div>
+                <div id="modal_btn4"><a href="https://youtu.be/-Q6sEcKHS2g" target="_blank"><img src="images/jap.png"></a></div>
+            </div>
+
+
+            <p>언어를 선택하시면 영상을 시청할 수 있습니다<br>
+                When you select a language, you can watch the video<br>
+                3G/LTE 등으로 재생 시 데이터 사용료가 발생할 수 있습니다<br>
+                Data usage charges may occur</p>
+            <footer>
+                <a href="#one" class="button style2 down intro_btn">More</a>
+            </footer>
+        </div>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="main style2 right dark fullscreen">
+        <div class="content box style2">
+            <header>
+                <h2 class="title_1"></h2>
+            </header>
+            <p class="content_text">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문무왕 674년, 삼국을 통일하고 국력이 강해지면서 궁궐도 커지게 되어 신라 왕궁의 별궁이며, 태자가 거처하는 동궁으로 사용되었는데 이는 안압지 남쪽에 신라 궁인 월성이 있어 이곳까지 자연스럽게 커진 것으로 나라의 경사가 있을 때나 귀한 손님을 맞을 때 성대한 연회를 베풀었던 곳이다.<br>
+                <span class="nbsp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In the town of Gyeongju there are more palaces and royal Silla heritage sites. Cheomseongdae, Gyerim, Wolseong and Anapji are directly connected to the palaces of Silla. Nodongdong, Noseodong, Gobungun, Daereungwon, Hwangori in Wangli Gobungun are the tombs of the royal family and nobility. Hwangryeongsateo and Bunhwangsa are large temples of Silla.
+
+            </p>
+        </div>
+        <a href="#two" class="button style2 down anchored">Next</a>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="main style2 left dark fullscreen">
+        <div class="content box style2">
+            <header>
+                <h2 class="title_2"></h2>
+            </header>
+            <table class="tour_table">
+                <tr>
+                    <th>홈페이지</th>
+                    <td><a href="http://www.gyeongju.go.kr/tour" target="_blank">http://www.gyeongju.go.kr/tour<img class="link_img" src="images/link.png"></a>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>문의</th>
+                    <td>054-570-8655 / 054-750-8650</td>
+                </tr>
+                <tr>
+                    <th>소요 시간</th>
+                    <td>1시간 10분 내외</td>
+                </tr>
+                <tr>
+                    <th>휴일</th>
+                    <td>연중무휴</td>
+                </tr>
+                <tr>
+                    <th>주차</th>
+                    <td>주차가능</td>
+                </tr>
+            </table>
+
+            <table class="tour_table_444">
+                <tr>
+                    <th>홈페이지<a href="http://www.gyeongju.go.kr/tour" target="_blank"><img class="link_img" src="images/link.png"></a></th>
+                </tr>
+                <tr>
+                    <td><a href="http://www.gyeongju.go.kr/tour" target="_blank">http://www.gyeongju.go.kr/tour</a></td>
+                </tr>
+                <tr>
+                    <th>문의</th>
+                </tr>
+                <tr>
+                    <td>054-570-8655 / 054-750-8650</td>
+                </tr>
+                <tr>
+                    <th>소요 시간</th>
+                </tr>
+                <tr>
+                    <td>1시간 10분 내외</td>
+                </tr>
+                <tr>
+                    <th>휴일</th>
+                </tr>
+                <tr>
+                    <td>연중무휴</td>
+                </tr>
+                <tr>
+                    <th>주차</th>
+                </tr>
+                <tr>
+                    <td>주차가능</td>
+                </tr>
+            </table>
+
+            <div class="tour_icon">
+                <div>
+                    <dfn data-info="장애인화장실">
+                        <img src="images/ico/ico_1.png">
+                    </dfn>
+                </div>
+                <div>
+                    <dfn data-info="장애인주차장"><img src="images/ico/ico_2.png"></dfn>
+                </div>
+                <div><dfn data-info="장애인승강기"><img src="images/ico/ico_3.png"></dfn></div>
+                <div><dfn data-info="휠체어단차"><img src="images/ico/ico_4.png"></dfn></div>
+                <div><dfn data-info="지하철이동로"><img src="images/ico/ico_5.png"></dfn></div>
+                <div><dfn data-info="이동용버스"><img src="images/ico/ico_6.png"></dfn></div>
+                <div><dfn data-info="휠체어대여"><img src="images/ico/ico_7.png"></dfn></div>
+                <div><dfn data-info="시청각서비스"><img src="images/ico/ico_8.png"></dfn></div>
+                <div><dfn data-info="시청각서비스"><img src="images/ico/ico_9.png"></dfn></div>
+            </div>
+        </div>
+
+
+        <a href="#work" class="button style2 down anchored">Next</a>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="main style3 primary">
+        <div class="content">
+            <header>
+                <h2 class="title_3"></h2>
+                <p class="gal_text">
+                    이전에는 안압지(雁鴨池)로 불렸었는데, 1980년 발굴된 토기 파편 등으로 신라시대에 이 호수를 월지(月池)라고 불렸다는 사실을 확인하였다<br>
+                    ‘월지'란 명칭은 반월성(半月城)(경주 월성)과 가까이 있었기 때문이고, 임해전의 이름도 원래는 월지궁이다<br>
+                    이러한 사실을 반영하여 정식 명칭도 오랫동안 써 왔던 '안압지' 대신 '동궁과 월지'로 변경되었고 각종 안내문에서도 변경된 명칭을 따랐다
+
+
+                </p>
+            </header>
+
+            <!-- Gallery  -->
+            <div class="gallery">
+                <article class="from-left">
+                    <a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" title="경주 동궁과 월지" alt="" /></a>
+                </article>
+                <article class="from-right">
+                    <a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" title="월지궁 건물 축조 확대" alt="" /></a>
+                </article>
+                <article class="from-left">
+                    <a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" title="월지궁 초여름 저녁 풍경" alt="" /></a>
+                </article>
+                <article class="from-right">
+                    <a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" title="경주 동궁과 월지 연못 전경" alt="" /></a>
+                </article>
+                <article class="from-left">
+                    <a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" title="월지궁 한겨울 낮 풍경" alt="" /></a>
+                </article>
+                <article class="from-right">
+                    <a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" title="월지궁 연지와 주변 건물" alt="" /></a>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="main style3 secondary">
+        <div class="content">
+            <div class="box">
+                <form method="post" action="#">
+                    <div class="fields">
+                        <h2 class="title_4"></h2>
+                        <table class="reservation">
+                            <tr>
+                                <th class="tab_left">입장료</th>
+                                <th>
+                                    <div class="round">어른</div>
+                                </th>
+                                <th>
+                                    <div class="round">청소년</div>
+                                </th>
+                                <th>
+                                    <div class="round">어린이</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="tab_left">개인</th>
+                                <td>3,000</td>
+                                <td>2,000</td>
+                                <td>1,000</td>
+                            </tr>
+                            <tr>
+                                <th class="tab_left">단체</th>
+                                <td>2,400</td>
+                                <td>1,600</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="memo">
+                                        <p><img src="images/memo.png">구매인원 30명 이상은 단체 금액으로 적용되오니 참고 바랍니다.<br>
+                                            <img src="images/memo.png">경주 시민 및 할인 대상자는 현장발권창구를 이용해 주시기 바랍니다.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="reservation_444">
+                            <tr>
+                                <th colspan="2" class="reservation_444_title">개인 입장료</th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="round_444">어른</div>
+                                </th>
+                                <td>3,000</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="round_444">청소년</div>
+                                </th>
+                                <td>2,000</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="round_444">어린이</div>
+                                </th>
+                                <td>1,000</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2" class="reservation_444_title">단체 입장료</th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="round_444">어른</div>
+                                </th>
+                                <td>2,400</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="round_444">청소년</div>
+                                </th>
+                                <td>1,600</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="round_444">어린이</div>
+                                </th>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="memo_444">
+                                        <p><img src="images/memo.png">구매인원 30명 이상은 단체 금액으로 적용되오니 참고 바랍니다.<br>
+                                            <img src="images/memo.png">경주 시민 및 할인 대상자는 현장발권창구를 이용해 주시기 바랍니다.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table class="btn_set">
+                            <tr>
+                                <td><a href="sub1.html" target="_blank">
+                                        <div class="btn_left">입장권 발권</div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="sub2.html" target="_blank">
+                                        <div class="btn_center">내 발권함</div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="sub3.html" target="_blank">
+                                        <div class="btn_right">문의하기</div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table class="btn_set_444">
+                            <tr>
+                                <td class="btn_td"><a href="sub1.html" target="_blank">
+                                        <div class="btn_444">입장권 발권</div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="btn_td">
+                                    <a href="sub2.html" target="_blank">
+                                        <div class="btn_444">내 발권함</div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="btn_td">
+                                    <a href="sub3.html" target="_blank">
+                                        <div class="btn_444">문의하기</div>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="box2_1055">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.580564385461!2d129.22436615098567!3d35.83476532904615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35664e70382225f5%3A0xddcee3b6f0c789fd!2z64-Z6raB6rO8IOyblOyngA!5e0!3m2!1sko!2skr!4v1621919153158!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+        </div>
+        <div class="box2">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.580564385461!2d129.22436615098567!3d35.83476532904615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35664e70382225f5%3A0xddcee3b6f0c789fd!2z64-Z6raB6rO8IOyblOyngA!5e0!3m2!1sko!2skr!4v1621919153158!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+
+        <!-- Icons -->
+        <ul class="icons">
+            <li><span class="label icon brands fa-twitter"></span></li>
+            <li><span class="label icon brands fa-facebook-f"></span></li>
+            <li><span class="label icon brands fa-instagram"></span></li>
+            <li><span class="label icon brands fa-linkedin-in"></span></li>
+            <li><span class="label icon brands fa-dribbble"></span></li>
+            <li><span class="label icon brands fa-pinterest"></span></li>
+        </ul>
+
+        <!-- Menu -->
+        <ul class="menu">
+            <li>Copyright 2021 Gyeongju Tourguide. All rights reserved.</li>
+        </ul>
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+        $("nav ul li").hover(function() {
+            $(this).find("ul").stop().fadeToggle(500);
+        });
+    </script>
+</body></html>
